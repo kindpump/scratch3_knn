@@ -1,3 +1,10 @@
+(function(Scratch) {
+  'use strict';
+
+  if (!Scratch.extensions.unsandboxed) {
+    throw new Error('files extension must be run unsandboxed');
+  }
+
 require('babel-polyfill');
 const Runtime = require('../../engine/runtime');
 
@@ -912,4 +919,5 @@ class Scratch3Knn {
     }
 }
 
-module.exports = Scratch3Knn;
+  Scratch.extensions.register(new Files());
+})(Scratch);
